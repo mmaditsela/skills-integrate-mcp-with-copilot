@@ -3,46 +3,223 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mergington High School Activities</title>
+    <title>Mergington High School</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Mergington High School</h1>
-      <h2>Extracurricular Activities</h2>
-    </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <a href="#home" class="logo">Mergington HS</a>
+        </div>
+        <div class="nav-actions">
+          <ul class="nav-menu">
+            <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
+            <li><a href="#clubs" class="nav-link" data-page="clubs">Clubs</a></li>
+            <li><a href="#events" class="nav-link" data-page="events">Events</a></li>
+            <li><a href="#gallery" class="nav-link" data-page="gallery">Gallery</a></li>
+            <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+          </ul>
 
-    <main>
-      <section id="activities-container">
-        <h3>Available Activities</h3>
-        <div id="activities-list">
-          <!-- Activities will be loaded here -->
-          <p>Loading activities...</p>
+          <div class="user-menu" id="user-menu">
+            <button id="user-menu-toggle" class="user-icon-btn" aria-label="Teacher account">User</button>
+            <div id="user-dropdown" class="user-dropdown hidden">
+              <p id="auth-status" class="auth-status">Student view</p>
+              <button id="open-login-btn" class="btn btn-secondary small-btn">Login</button>
+              <button id="logout-btn" class="btn btn-secondary small-btn hidden">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- HOME PAGE -->
+      <section id="home-page" class="page">
+        <header class="page-header">
+          <h1>Mergington High School</h1>
+          <p class="subtitle">Excellence in Education & Activities</p>
+        </header>
+
+        <div class="hero-content">
+          <div class="hero-card">
+            <h3>🎓 Clubs & Activities</h3>
+            <p>Join one of our many clubs and sports teams to explore your interests and make friends.</p>
+            <a href="#clubs" class="btn btn-primary">Explore Clubs</a>
+          </div>
+          <div class="hero-card">
+            <h3>🎉 Upcoming Events</h3>
+            <p>Check out exciting events happening at Mergington throughout the year.</p>
+            <a href="#events" class="btn btn-primary">View Events</a>
+          </div>
+          <div class="hero-card">
+            <h3>📸 Gallery</h3>
+            <p>See photos and memories from our school activities and events.</p>
+            <a href="#gallery" class="btn btn-primary">View Gallery</a>
+          </div>
+        </div>
+
+        <section class="quick-stats">
+          <h2>By The Numbers</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">9+</div>
+              <div class="stat-label">Clubs & Teams</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">200+</div>
+              <div class="stat-label">Active Members</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">12</div>
+              <div class="stat-label">Events This Year</div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- CLUBS PAGE -->
+      <section id="clubs-page" class="page">
+        <header class="page-header">
+          <h1>Clubs & Activities</h1>
+          <p class="subtitle">Join our diverse community of clubs and teams</p>
+        </header>
+
+        <div class="page-content">
+          <div class="clubs-container">
+            <div id="activities-list" class="activities-grid">
+              <p>Loading clubs...</p>
+            </div>
+          </div>
+
+          <div class="signup-section">
+            <h2>Sign Up for a Club</h2>
+            <p id="teacher-gate-message" class="info-banner">Teacher login required to register or unregister students.</p>
+            <form id="signup-form">
+              <div class="form-group">
+                <label for="email">Student Email:</label>
+                <input type="email" id="email" required placeholder="your-email@mergington.edu" />
+              </div>
+              <div class="form-group">
+                <label for="activity">Select Club:</label>
+                <select id="activity" required>
+                  <option value="">-- Select a club --</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            <div id="signup-message" class="message hidden"></div>
+          </div>
         </div>
       </section>
 
-      <section id="signup-container">
-        <h3>Sign Up for an Activity</h3>
-        <form id="signup-form">
-          <div class="form-group">
-            <label for="email">Student Email:</label>
-            <input type="email" id="email" required placeholder="your-email@mergington.edu" />
+      <!-- EVENTS PAGE -->
+      <section id="events-page" class="page">
+        <header class="page-header">
+          <h1>Upcoming Events</h1>
+          <p class="subtitle">Don't miss out on these exciting activities</p>
+        </header>
+
+        <div id="events-list" class="events-grid">
+          <p>Loading events...</p>
+        </div>
+      </section>
+
+      <!-- GALLERY PAGE -->
+      <section id="gallery-page" class="page">
+        <header class="page-header">
+          <h1>Gallery</h1>
+          <p class="subtitle">Memories and moments from Mergington</p>
+        </header>
+
+        <div id="gallery-container" class="gallery-grid">
+          <p>Loading gallery...</p>
+        </div>
+      </section>
+
+      <!-- CONTACT PAGE -->
+      <section id="contact-page" class="page">
+        <header class="page-header">
+          <h1>Contact Us</h1>
+          <p class="subtitle">Get in touch with Mergington High School</p>
+        </header>
+
+        <div class="contact-content">
+          <div class="contact-info-card">
+            <h2 id="contact-school-name">School Name</h2>
+            <div class="contact-detail">
+              <strong>📍 Address:</strong>
+              <p id="contact-address"></p>
+            </div>
+            <div class="contact-detail">
+              <strong>📞 Phone:</strong>
+              <p id="contact-phone"></p>
+            </div>
+            <div class="contact-detail">
+              <strong>📧 Email:</strong>
+              <p id="contact-email"></p>
+            </div>
+            <div class="contact-detail">
+              <strong>🕐 School Hours:</strong>
+              <p id="contact-hours"></p>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="activity">Select Activity:</label>
-            <select id="activity" required>
-              <option value="">-- Select an activity --</option>
-              <!-- Activity options will be loaded here -->
-            </select>
+
+          <div class="contact-staff">
+            <h3>Staff</h3>
+            <div class="staff-list">
+              <div class="staff-member">
+                <strong id="contact-principal-name">Principal</strong>
+                <p>Principal</p>
+              </div>
+              <div class="staff-member">
+                <strong id="contact-vp-name">Vice Principal</strong>
+                <p>Vice Principal</p>
+              </div>
+            </div>
           </div>
-          <button type="submit">Sign Up</button>
-        </form>
-        <div id="message" class="hidden"></div>
+
+          <div class="social-media">
+            <h3>Follow Us</h3>
+            <div class="social-links" id="social-links"></div>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer>
-      <p>&copy; 2026 Mergington High School</p>
+    <!-- Event Detail Modal -->
+    <div id="event-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Teacher Login Modal -->
+    <div id="auth-modal" class="modal hidden">
+      <div class="modal-content auth-modal-content">
+        <span class="auth-modal-close">&times;</span>
+        <h2>Teacher Login</h2>
+        <form id="auth-form">
+          <div class="form-group">
+            <label for="teacher-username">Username:</label>
+            <input type="text" id="teacher-username" required placeholder="Enter teacher username" />
+          </div>
+          <div class="form-group">
+            <label for="teacher-password">Password:</label>
+            <input type="password" id="teacher-password" required placeholder="Enter password" />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div id="auth-message" class="message hidden"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 Mergington High School. All rights reserved.</p>
     </footer>
 
     <script src="app.js"></script>
